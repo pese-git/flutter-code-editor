@@ -46,5 +46,8 @@ app.*.map.json
 /android/app/release
 
 pubspec.lock
-.fvm/flutter_sdk
-.fvm/fvm_config.json
+
+.vscode/
+
+# FVM Version Cache
+.fvm/

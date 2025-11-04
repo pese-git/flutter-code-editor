@@ -5,8 +5,7 @@
 
 // ignore_for_file: avoid_print
 
-import 'dart:js_interop' as js;
-import 'dart:js_interop_unsafe' as js_util;
+import 'dart:js_util' as js_util;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
@@ -59,7 +58,9 @@ final fieldFactories = <String, FieldFactory>{
 };
 
 final renderer =
-    js.globalContext['flutterCanvasKit'] == null ? 'HTML' : 'CanvasKit';
+    js_util.getProperty<Object?>(js_util.globalThis, 'flutterCanvasKit') == null
+        ? 'HTML'
+        : 'CanvasKit';
 
 void main() {
   runApp(CodeEditor());
